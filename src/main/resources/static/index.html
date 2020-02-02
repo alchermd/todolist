@@ -24,6 +24,8 @@
                     <span v-else>
                         {{ task.body }}
                     </span>
+
+                    - <button @click="deleteTask(task)">Delete</button>
                 </li>
             </ul>
         </div>

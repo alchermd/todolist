@@ -45,6 +45,17 @@ var app = new Vue({
                     }
                 });
         },
+        deleteTask(task) {
+            fetch(`/tasks/${task.id}/`, {
+                method: 'delete',
+            })
+                .then(response => {
+                    let index = this.tasks.map(task => task.id).indexOf(task.id);
+                    this.tasks.splice(index, 1);
+
+                    alert('Task deleted');
+                });
+        },
         compareById(a, b) {
             if (a.id < b.id) {
                 return -1;
