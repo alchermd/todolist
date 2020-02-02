@@ -1,4 +1,4 @@
-# Spring + PostgreSQL Vue TodoList
+# Spring + PostgreSQL + Vue TodoList
 
 Barebones CRUD application that I built to get the hang of the Spring framework.
 
