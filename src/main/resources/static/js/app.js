@@ -35,15 +35,13 @@ var app = new Vue({
             })
                 .then(response => {
                     if (response.status === 200) {
-                        this.tasks.push({
-                            body: this.newTask,
-                            finished: false,
-                        });
-
                         this.newTask = '';
                         alert('Task added!');
                     }
-                });
+
+                    return response.json();
+                })
+                .then(task => this.tasks.push(task));
         },
         deleteTask(task) {
             fetch(`/tasks/${task.id}/`, {
