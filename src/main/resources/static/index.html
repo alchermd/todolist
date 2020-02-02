@@ -11,7 +11,15 @@
     <body>
         <div id="app">
             <ul v-for="task in tasks">
-                <li>{{ task.id }} - {{ task.body }} ({{ task.finished ? 'Finished' : 'In Progress' }})</li>
+                <li>
+                    <input type="checkbox" name="finished" v-model="task.finished" @change="updateTask($event, task)">
+                    <span style="text-decoration: line-through" v-if="task.finished">
+                        {{ task.body }}
+                    </span>
+                    <span v-else>
+                        {{ task.body }}
+                    </span>
+                </li>
             </ul>
         </div>
     </body>
