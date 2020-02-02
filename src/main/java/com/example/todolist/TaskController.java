@@ -35,4 +35,15 @@ public class TaskController {
 
         return task;
     }
+
+    @PostMapping("/")
+    public Task createTask(@RequestBody Map<String, Object> payload) {
+        Task task = new Task();
+        task.setBody((String) payload.get("body"));
+        task.setFinished(false);
+
+        taskRepository.save(task);
+
+        return task;
+    }
 }

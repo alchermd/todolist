@@ -10,6 +10,11 @@
     </head>
     <body>
         <div id="app">
+            <form @submit="addTask">
+                <input type="text" v-model="newTask">
+                <input type="submit" value="Add">
+            </form>
+            
             <ul v-for="task in tasks">
                 <li>
                     <input type="checkbox" name="finished" v-model="task.finished" @change="updateTask($event, task)">
